@@ -1,0 +1,64 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+float area(int a , int b) //triangle - call by value
+{
+    return (0.5)*a*b;
+
+}
+int area(int *x , int *y) //rectangle - call by address
+{
+    return (*x)*(*y);
+
+}
+int area(int &x) //square - call by reference
+{
+    return (x)*(x);
+
+}
+int main()
+{
+    int options,base,height,width,length,a ,area_rectangle,area_square;
+    float area_triangle;
+
+    cout<<"1. Area of Triangle" <<endl <<"2. Area of Rectangle" <<endl <<"3. Area of Square" <<endl <<endl << "Choose anyone fron 1 to 3 : ";
+    cin>> options;
+    cout<<endl;
+    if(options == 1)
+    {
+        //triangle
+        cout<<"Enter Base of triangle :";
+        cin>> base;
+        cout<<"Enter Height of triangle :";
+        cin>> height;
+        area_triangle = area(base,height);
+        cout<<endl<<"Area of Triangle is = "<< area_triangle;
+
+    }
+    else if(options == 2)
+    {
+        //rectangle
+        cout<<"Enter Length of rectangle :";
+        cin>> length;
+        cout<<"Enter Width of rectangle :";
+        cin>> width;
+        area_rectangle = area(&length,&width);
+        cout<<endl<<"Area of rectangle is = "<< area_rectangle;
+    }
+    else if(options == 3)
+    {
+        //square
+        cout<<"Enter side of Square :";
+        cin>> a;
+        area_square = area(a);
+        cout<<endl<<"Area of Square is = "<< area_square;
+    }
+    else{
+        cout<<"You have choose wrong option..!";
+    }
+
+    getch();
+
+return 0;
+}
+
